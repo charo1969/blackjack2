@@ -37,7 +37,7 @@ public class Carta {
 	// metodo
 	
 	public int getValor() {
-		if(this.numeroCarta == 1) {
+		if(this.numeroCarta == 11) {
 			return 11;
 		}else if(this.numeroCarta>10) {
 			return 10;
@@ -47,7 +47,7 @@ public class Carta {
 		
 	}
 	// metodo
-	public String mostraNumero() {
+	public String mostrarNumero() {
 		if(this.numeroCarta == 1) {
 			return "AS";
 		}else if(this.numeroCarta == 11) {
@@ -63,7 +63,7 @@ public class Carta {
 	// toString
 	@Override
 	public String toString() {
-		return "[" + this.numeroCarta + " - " + this.palo + "]";
+		return "[" + this.mostrarNumero() + " - " + this.palo + "]";
 	}
 
 	
