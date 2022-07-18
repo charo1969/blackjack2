@@ -7,14 +7,32 @@ import modelo.Mazo;
 
 public class Juego {
 
+
 	public static void main(String[] args) {
-
+	
 		Mazo mazo = new Mazo();
-
 		Mano jugador = new Mano();
+		Mano banca = new Mano();
 
 		System.out.println("Barajando carta ...");
+		
 		mazo.barajar();
+		
+		System.out.println("Repartiendo cartas iniciales ...");
+		jugador.pedirCarta(mazo);
+		System.out.println("Jugador: "+jugador);
+		
+		banca.pedirCarta(mazo);
+		System.out.println("Banca "+banca);
+		
+		System.out.println("Repartiendo cartas iniciales ...");
+		jugador.pedirCarta(mazo);
+		System.out.println("Jugador: "+jugador);
+		
+		banca.pedirCarta(mazo,false);
+		System.out.println("Banca:  "+banca);
+		
+		
 
 		Scanner teclado = new Scanner(System.in);
 		int opcion;
@@ -33,10 +51,13 @@ public class Juego {
 
 		} while (opcion != 0 && !jugador.finDeJuego());
 		
-		// creamos la banca para jugar con el jugador
+		/* creamos la banca para jugar con el jugador y damos dos cartas al jugador y la banca
+			la banca solo descubre una , el jugador las dos*/
 		
-		Mano banca = new Mano();
+		
 		System.out.println("Juega la banca...");
+		banca.descubrir();
+		System.out.println("Cartas de la banca: "+banca);
 
 		
 		if(jugador.valorMano()>21){
